@@ -8,33 +8,38 @@ public class arrow : MonoBehaviour {
 	public Sprite right;
 	public Sprite down;
 	bool state;
+	float last;
 	// Use this for initialization
 	void Start () {
-		if (Random.Range (-1.0f, 1.0f) > 0) {
-			this.GetComponent<SpriteRenderer> ().sprite = on;
-			state = true;
-		} else {
-			this.GetComponent<SpriteRenderer> ().sprite = off;
-			state = false;
-		}
+		last = 0f;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxis ("Vertical")>0) {
-			state = !state;
-			if(state)
+		last = Time.deltaTime;
+
+		if(last >=2f)
+		{
+			float temp = Random.Range (0f, 4f);
+			if(temp > 3f)
 			{
-				this.GetComponent<SpriteRenderer> ().sprite = on;
-			}	
-			else{
-				this.GetComponent<SpriteRenderer> ().sprite = off;
+				this.GetComponent<SpriteRenderer> ().sprite = up;
 			}
-			
+			else if(temp > 2f)
+			{
+				this.GetComponent<SpriteRenderer> ().sprite = down;
+			}
+			else if(temp > 1f)
+			{
+				this.GetComponent<SpriteRenderer> ().sprite = left;
+			}
+			else
+			{
+				this.GetComponent<SpriteRenderer> ().sprite = right;
+			}
 		}
-		else if(Input.GetAxis ("Vertical")>0){
-		}
-		else{
-		}
+
+		last = 0f;
 	}
 }
