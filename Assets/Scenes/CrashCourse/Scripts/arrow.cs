@@ -10,11 +10,13 @@ public class arrow : MonoBehaviour {
 	bool state;
 	float target;
 	float last;
+	float previous;
 	// Use this for initialization
 	void Start () {
 		last = 0f;
 		target = -1f;
 		state = false;
+		previous = 0f;
 	}
 	
 	// Update is called once per frame
@@ -26,7 +28,7 @@ public class arrow : MonoBehaviour {
 			if(target > 3f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = up;
-				if(state != GameObject.Find("Switch1").GetComponent<Switch1>().state)
+				if(state == GameObject.Find("Switch1").GetComponent<Switch1>().state)
 				{
 					this.GetComponentInParent<MiniGame>().ReportLose();
 				}
@@ -34,7 +36,7 @@ public class arrow : MonoBehaviour {
 			else if(target > 2f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = down;
-				if(state != GameObject.Find("Switch2").GetComponent<Switch2>().state)
+				if(state == GameObject.Find("Switch2").GetComponent<Switch2>().state)
 				{
 					this.GetComponentInParent<MiniGame>().ReportLose();
 				}
@@ -42,7 +44,7 @@ public class arrow : MonoBehaviour {
 			else if(target > 1f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = left;
-				if(state = GameObject.Find("Switch3").GetComponent<Switch3>().state)
+				if(state == GameObject.Find("Switch3").GetComponent<Switch3>().state)
 				{
 					this.GetComponentInParent<MiniGame>().ReportLose();
 				}
@@ -50,32 +52,32 @@ public class arrow : MonoBehaviour {
 			else if(target > 0f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = right;
-				if(state = GameObject.Find("Switch4").GetComponent<Switch4>().state)
+				if(state == GameObject.Find("Switch4").GetComponent<Switch4>().state)
 				{
 					this.GetComponentInParent<MiniGame>().ReportLose();
 				}
 			}
-			float temp = Random.Range (0f, 4f);
+			float temp = (Random.Range (1f, 3f)+previous)%4;
 			target = temp; 
 			if(temp > 3f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = up;
-				//state = GameObject.Find("Switch1").GetComponent<Switch1>().state;
+				state = GameObject.Find("Switch1").GetComponent<Switch1>().state;
 			}
 			else if(temp > 2f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = down;
-				//state = GameObject.Find("Switch2").GetComponent<Switch2>().state;
+				state = GameObject.Find("Switch2").GetComponent<Switch2>().state;
 			}
 			else if(temp > 1f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = left;
-				//state = GameObject.Find("Switch3").GetComponent<Switch3>().state;
+				state = GameObject.Find("Switch3").GetComponent<Switch3>().state;
 			}
 			else if(temp >0f);
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = right;
-				//state = GameObject.Find("Switch4").GetComponent<Switch4>().state;
+				state = GameObject.Find("Switch4").GetComponent<Switch4>().state;
 			}
 			
 			last = 0f;
