@@ -23,7 +23,7 @@ public class arrow : MonoBehaviour {
 	void Update () {
 		last += Time.deltaTime;
 
-		if(last >=1f)
+		if(last >1f)
 		{
 			if(target > 3f)
 			{
@@ -57,7 +57,8 @@ public class arrow : MonoBehaviour {
 					this.GetComponentInParent<MiniGame>().ReportLose();
 				}
 			}
-			float temp = (Random.Range (1f, 3f)+previous)%4;
+
+			float temp = Random.Range (0f, 4f);
 			target = temp; 
 			if(temp > 3f)
 			{
@@ -72,6 +73,7 @@ public class arrow : MonoBehaviour {
 			else if(temp > 1f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = left;
+
 				state = GameObject.Find("Switch3").GetComponent<Switch3>().state;
 			}
 			else if(temp >0f);
@@ -79,7 +81,9 @@ public class arrow : MonoBehaviour {
 				this.GetComponent<SpriteRenderer> ().sprite = right;
 				state = GameObject.Find("Switch4").GetComponent<Switch4>().state;
 			}
-			
+		}
+		else if(last >2f)
+		{
 			last = 0f;
 		}
 	}
