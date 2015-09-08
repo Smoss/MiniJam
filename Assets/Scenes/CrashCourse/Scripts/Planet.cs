@@ -8,7 +8,7 @@ public class Planet : MonoBehaviour {
 	Vector3 position;
 	void Start () {
 		wheel = GameObject.Find ("wheel");
-		position = new Vector3 (Random.Range (-5.0f, -3.0f),0.0f ,0.0f);
+		position = new Vector3 (Random.Range (-5.0f, 5.0f),0.0f ,0.0f);
 		transform.position = position + transform.position;
 		
 	

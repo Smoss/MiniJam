@@ -17,9 +17,9 @@ public class arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		last = Time.deltaTime;
+		last += Time.deltaTime;
 
-		if(last >=2f)
+		if(last >=1f)
 		{
 			float temp = Random.Range (0f, 4f);
 			if(temp > 3f)
@@ -38,8 +38,8 @@ public class arrow : MonoBehaviour {
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = right;
 			}
+			
+			last = 0f;
 		}
-
-		last = 0f;
 	}
 }
