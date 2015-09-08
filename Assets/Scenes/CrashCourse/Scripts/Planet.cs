@@ -17,8 +17,8 @@ public class Planet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.localScale = (Time.deltaTime*new Vector3(0.2f, 0.2f, 0.0f))+transform.localScale;  // does nothing, just a bad guess
-		transform.position = (Time.deltaTime*new Vector3 (Wheel.rot,0.0f ,0.0f)) + transform.position;
-		transform.position = (Time.deltaTime*new Vector3 (Random.Range (-10f, 10f),0.0f ,0.0f)) + transform.position;
+		transform.position = (Time.deltaTime*new Vector3 (wheel.GetComponent<Wheel>().rot/360.0f,0.0f ,0.0f)) + transform.position;
+		transform.position = (Time.deltaTime*new Vector3 (Random.Range (-25f, 25f),0.0f ,0.0f)) + transform.position;
 
 	
 	}
