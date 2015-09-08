@@ -8,7 +8,7 @@ public class Planet : MonoBehaviour {
 	Vector3 position;
 	void Start () {
 		wheel = GameObject.Find ("wheel");
-		position = new Vector3 (Random.Range (-5.0f, 5.0f),0.0f ,0.0f);
+		position = new Vector3 (Random.Range (-5.0f, -3.0f),0.0f ,0.0f);
 		transform.position = position + transform.position;
 		
 	
@@ -18,7 +18,7 @@ public class Planet : MonoBehaviour {
 	void Update () {
 		transform.localScale = (Time.deltaTime*new Vector3(0.2f, 0.2f, 0.0f))+transform.localScale;  // does nothing, just a bad guess
 		transform.position = (Time.deltaTime*new Vector3 (wheel.GetComponent<Wheel>().rot/360.0f,0.0f ,0.0f)) + transform.position;
-		transform.position = (Time.deltaTime*new Vector3 (Random.Range (-25f, 25f),0.0f ,0.0f)) + transform.position;
+		transform.position = (Time.deltaTime*new Vector3 (Random.Range (-15f, 15f),0.0f ,0.0f)) + transform.position;
 
 	
 	}
