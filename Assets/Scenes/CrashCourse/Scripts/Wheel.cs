@@ -4,7 +4,7 @@ using System.Collections;
 public class Wheel : MonoBehaviour {
 	
 	public float speed = 1.0f;
-	public string axisName = "Horizontal";
+	public float rot = 0.0f;
 	
 	// Use this for initialization
 	void Start () {
@@ -15,12 +15,14 @@ public class Wheel : MonoBehaviour {
 		
 		if(Input.GetButton("Button 1")) {
 			// left
-			transform.Rotate(0.0f, 0.0f, 5.0f);  // does nothing, just a bad guess
+			transform.Rotate(Time.deltaTime*new Vector3(0.0f, 0.0f, 100.0f));  // does nothing, just a bad guess
+			rot = Time.deltaTime*100.0f;
 		}
 		
 		if(Input.GetButton("Button 2")) {
 			// right
-			transform.Rotate(0.0f, 0.0f, -5.0f);  // does nothing, just a bad guess
+			transform.Rotate(Time.deltaTime*new Vector3(0.0f, 0.0f, -100.0f));  // does nothing, just a bad guess
+			rot = Time.deltaTime*-100.0f;
 		}
 		
 	}
