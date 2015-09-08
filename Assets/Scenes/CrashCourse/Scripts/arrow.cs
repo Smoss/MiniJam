@@ -11,20 +11,23 @@ public class arrow : MonoBehaviour {
 	float target;
 	float last;
 	float previous;
+	bool between;
 	// Use this for initialization
 	void Start () {
 		last = 0f;
 		target = -1f;
 		state = false;
 		previous = 0f;
+		between = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		last += Time.deltaTime;
 
-		if(last >1f)
+		if(last >1f && !between)
 		{
+			between = true;
 			if(target > 3f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = up;
@@ -76,7 +79,7 @@ public class arrow : MonoBehaviour {
 
 				state = GameObject.Find("Switch3").GetComponent<Switch3>().state;
 			}
-			else if(temp >0f);
+			else if(temp >0f)
 			{
 				this.GetComponent<SpriteRenderer> ().sprite = right;
 				state = GameObject.Find("Switch4").GetComponent<Switch4>().state;
@@ -84,7 +87,9 @@ public class arrow : MonoBehaviour {
 		}
 		else if(last >2f)
 		{
+			this.GetComponent<SpriteRenderer> ().sprite = none;
 			last = 0f;
+			between = false;
 		}
 	}
 }
