@@ -4,7 +4,7 @@ using System.Collections;
 public class Switch2 : MonoBehaviour {
 	public Sprite on;
 	public Sprite off;
-	bool state;
+	public bool state=false;
 	bool swapped;
 	// Use this for initialization
 	void Start () {

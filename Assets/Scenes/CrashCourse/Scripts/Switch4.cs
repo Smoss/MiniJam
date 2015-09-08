@@ -4,10 +4,11 @@ using System.Collections;
 public class Switch4 : MonoBehaviour {
 	public Sprite on;
 	public Sprite off;
-	bool state;
+	public bool state=false;
 	bool swapped;
 	// Use this for initialization
 	void Start () {
+		state = true;
 		if (Random.Range (-1.0f, 1.0f) > 0) {
 			this.GetComponent<SpriteRenderer> ().sprite = on;
 			state = true;
