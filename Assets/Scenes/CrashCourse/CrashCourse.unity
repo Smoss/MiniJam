@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58119fe10fcac6c4cbd11818ee6a291f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 5
+  gameTime: 10
   winOnTimeOut: 0
   instruction: 
   completeLines: []
