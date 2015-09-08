@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class arrow : MonoBehaviour {
-	/*public Sprite none;
+	public Sprite none;
 	public Sprite up;
 	public Sprite left;
 	public Sprite right;
@@ -36,5 +36,5 @@ public class arrow : MonoBehaviour {
 		}
 		else{
 		}
-	}*/
+	}
 }
